@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -49,7 +44,7 @@ registers in wikiaves:
 library(wikiaves)
 library(dplyr)
 # fetching metadata in a tidy tibble
-birds_metadata <- wikiaves::wa_metadata(c("Querula purpurata", "Cotin"))
+birds_metadata <- wa_metadata(c("Querula purpurata", "Cotin"))
 #> IDs found from terms:
 #> id = 11387 (from term 'Querula purpurata')
 #> id = 11371 (from term 'Cotin')
@@ -93,7 +88,7 @@ This is smart enough to download non-existing or zero sized files only.
 # download mp3
 my_mp3_folder <- tempdir()
 birds_metadata %>% wa_download(my_mp3_folder)
-#> MP3s will be stored in /tmp/Rtmp4nizkp.
+#> MP3s will be stored in /tmp/RtmpPfBzAj.
 ```
 
 ### MP3 files in your local machine with names ready to analytics.

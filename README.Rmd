@@ -46,7 +46,7 @@ This is a basic example which shows you how to fetch metadata from registers in 
 library(wikiaves)
 library(dplyr)
 # fetching metadata in a tidy tibble
-birds_metadata <- wikiaves::wa_metadata(c("Querula purpurata", "Cotin"))
+birds_metadata <- wa_metadata(c("Querula purpurata", "Cotin"))
 ```
 
 ### Downloading... 

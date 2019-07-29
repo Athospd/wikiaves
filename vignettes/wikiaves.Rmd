@@ -1,0 +1,42 @@
+---
+title: "wikiaves"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{wikiaves}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The main function is `wa_metadata()`. It takes a "term" specifying the species that you would like to retrieve information and download the audio files (in mp3 format). In the exmaple below brings all records from species "Querula purpurata" into a tidy tibble.
+
+```{r setup}
+library(wikiaves)
+library(dplyr)
+# fetching metadata in a tidy tibble
+querula_purpurata_metadata <- wa_metadata(c("Querula purpurata"))
+```
+
+```{r}
+querula_purpurata_metadata %>% head
+```
+
+To download all files from `querula_purpurata_metadata` we could use `wa_download()`.
+
+```{r}
+querula_purpurata_metadata %>% wa_download()
+```
+
+The term could be part of the species name also (like the gender).
+
+```{r}
+querula_metadata <- wa_metadata(c("Querula"))
+```
+
+For now, to browse for species names is recommended to start from the [wikiaves](wikiaves.com.br) website.

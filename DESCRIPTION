@@ -8,9 +8,12 @@ Authors@R:
            email = "athos.damiani@curso-r.com")
 Description: Non-official API of wikiaves.com.br that retrieves sounds to aid analysis and data-driven projects.
 License: GPL-3
+url: https://github.com/Athospd/wikiaves
 Suggests: 
     testthat (>= 2.1.0),
-    covr
+    covr,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -29,3 +32,4 @@ Imports:
     httr,
     progress,
     crayon
+VignetteBuilder: knitr
