@@ -1,0 +1,31 @@
+Package: wikiaves
+Title: API to retrieve sounds and images from wikiaves.com.br
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Athos",
+           family = "Damiani",
+           role = c("aut", "cre"),
+           email = "athos.damiani@curso-r.com")
+Description: Non-official API of wikiaves.com.br that retrieves sounds and images to aid analysis and data-driven projects.
+License: GPL-3
+Suggests: 
+    testthat (>= 2.1.0),
+    covr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Depends: 
+    R (>= 3.2)
+Imports: 
+    jsonlite,
+    glue,
+    magrittr,
+    purrr,
+    tidyr,
+    dplyr,
+    tibble,
+    stringr,
+    httr,
+    progress,
+    crayon
