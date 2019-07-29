@@ -10,13 +10,14 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = TRUE
 )
 ```
 
 The main function is `wa_metadata()`. It takes a "term" specifying the species that you would like to retrieve information and download the audio files (in mp3 format). In the exmaple below brings all records from species "Querula purpurata" into a tidy tibble.
 
-```{r setup}
+```{r setup, message=FALSE, warning=FALSE}
 library(wikiaves)
 library(dplyr)
 # fetching metadata in a tidy tibble

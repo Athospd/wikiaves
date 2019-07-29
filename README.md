@@ -88,7 +88,7 @@ This is smart enough to download non-existing or zero sized files only.
 # download mp3
 my_mp3_folder <- tempdir()
 birds_metadata %>% wa_download(my_mp3_folder)
-#> MP3s will be stored in /tmp/RtmpPfBzAj.
+#> MP3s will be stored in /tmp/RtmpAkQgxp.
 ```
 
 ### MP3 files in your local machine with names ready to analytics.

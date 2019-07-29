@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://athospd.github.io/wikiaves/index.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/wa_download.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/wa_get_registers_by_id.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/wa_get_registros_json.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/wa_get_registros_json_n.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/wa_get_taxons_json.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/reference/wa_metadata.html</loc>
+  </url>
+  <url>
+    <loc>https://athospd.github.io/wikiaves/articles/wikiaves.html</loc>
+  </url>
+</urlset>
