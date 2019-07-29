@@ -1,6 +1,6 @@
 Package: wikiaves
 Title: API to retrieve sounds from wikiaves.com.br
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Athos",
            family = "Damiani",
@@ -8,7 +8,7 @@ Authors@R:
            email = "athos.damiani@curso-r.com")
 Description: Non-official API of wikiaves.com.br that retrieves sounds to aid analysis and data-driven projects.
 License: GPL-3
-url: https://github.com/Athospd/wikiaves
+url: https://github.com/athospd/wikiaves
 Suggests: 
     testthat (>= 2.1.0),
     covr,
