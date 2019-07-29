@@ -21,16 +21,18 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/Athospd/wikiaves/branch/master/graph/badge.svg)](https://codecov.io/gh/Athospd/wikiaves?branch=master)
 <!-- badges: end -->
 
-Non-official API of (wikiaves.com.br)[wikiaves.com.br] that retrieves sounds and images from its repository. 
+Non-official R interface for (wikiaves)[wikiaves.com.br] API, that retrieve sounds from its repository (no images supported yet). 
 The goal of wikiaves R package is to aid analysis and data-driven projects.
+
+**Attention** This package is on a VERY EARLY development stage. Expect things to change a lot! And any help is wellcome =).
 
 ## Installation
 
 You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("Athospd/wikiaves")
+# install.packages("remotes")
+remotes::install_github("Athospd/wikiaves")
 ```
 
 The released version of wikiaves from [CRAN](https://CRAN.R-project.org) will be available soon.
@@ -38,18 +40,40 @@ The released version of wikiaves from [CRAN](https://CRAN.R-project.org) will be
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to fetch metadata from registers in wikiaves:
 
-```{r example}
+```{r example1, message=FALSE, warning=FALSE}
 library(wikiaves)
-
+library(dplyr)
 # fetching metadata in a tidy tibble
 birds_metadata <- wikiaves::wa_metadata(c("Querula purpurata", "Cotin"))
+```
 
+### Downloading... 
+
+This is smart enough to download non-existing or zero sized files only.
+
+```{r example2}
 # download mp3
 my_mp3_folder <- tempdir()
 birds_metadata %>% wa_download(my_mp3_folder)
 ```
+
+### MP3 files in your local machine with names ready to analytics.
+
+```{r}
+head(list.files(my_mp3_folder))
+```
+
+### Metadata in a tidy tibble.
+
+```{r}
+glimpse(birds_metadata)
+```
+
+## Acknowledgement
+
+This package is part of a larger project called **"Automatic acoustic detectors of night bird species in their natural biome"**, oriented by Professor Doctor Linilson Padovese and co-oriented by Professor Doctor Paulo Hubert. This project aims to build machine learning systems in the context of bird identification.
 
 ## Contributor Code of Conduct
 

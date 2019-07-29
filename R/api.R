@@ -161,7 +161,8 @@ wa_download <- function(.wa_metadata, path = getwd(), verbose = TRUE, sys_sleep 
     pb$tick()
     Sys.sleep(sys_sleep)
     file_path <- glue::glue("{path}/{.y}")
-    if(force | !file.exists(file_path) | near(file.size(file_path), 0)) {
+
+    if(!is.na(.x) & (force | !file.exists(file_path) | dplyr::near(file.size(file_path), 0))) {
       httr::GET(.x, httr::write_disk(file_path, overwrite = TRUE))
     }
   })
