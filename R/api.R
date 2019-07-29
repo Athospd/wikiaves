@@ -1,4 +1,5 @@
-#' Interface to `getTaxonsJSON` from wikiaves
+
+#' Interface to `getTaxonsJSON` from wikiaves.
 #'
 #' @param term character vector with the terms to be searched by wikiaves API. Can be a full species specification or just part of it, eg. c("megascops choliba", "strix h").
 wa_get_taxons_json <- function(term) {
@@ -25,8 +26,9 @@ wa_get_registros_json <- function(
     tidyr::unnest()
 }
 
-# Figure out the total count of registers from a given call from `wa_get_registros_json()`
-#' Title
+
+
+#' Figure out the total count of registers from a given call from `wa_get_registros_json()`
 #'
 #' @param id integer. Wikiaves' id of a species.
 #' @param tm sound ("s") or photo ("f")

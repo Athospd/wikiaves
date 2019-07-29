@@ -2,7 +2,7 @@
 % Please edit documentation in R/api.R
 \name{wa_get_taxons_json}
 \alias{wa_get_taxons_json}
-\title{Interface to \code{getTaxonsJSON} from wikiaves}
+\title{Interface to \code{getTaxonsJSON} from wikiaves.}
 \usage{
 wa_get_taxons_json(term)
 }
@@ -10,5 +10,5 @@ wa_get_taxons_json(term)
 \item{term}{character vector with the terms to be searched by wikiaves API. Can be a full species specification or just part of it, eg. c("megascops choliba", "strix h").}
 }
 \description{
-Interface to \code{getTaxonsJSON} from wikiaves
+Interface to \code{getTaxonsJSON} from wikiaves.
 }

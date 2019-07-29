@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/Athospd/wikiaves/branch/master/graph/badge.svg)](https://codecov.io/gh/Athospd/wikiaves?branch=master)
 <!-- badges: end -->
 
-Non-official R interface for (wikiaves)[wikiaves.com.br] API, that retrieve sounds from its repository (no images supported yet). 
+Non-official R interface for [wikiaves](wikiaves.com.br) API, that retrieve sounds from its repository (no images supported yet). 
 The goal of wikiaves R package is to aid analysis and data-driven projects.
 
 **Attention** This package is on a VERY EARLY development stage. Expect things to change a lot! And any help is wellcome =).

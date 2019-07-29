@@ -2,7 +2,7 @@
 % Please edit documentation in R/api.R
 \name{wa_get_registros_json_n}
 \alias{wa_get_registros_json_n}
-\title{Title}
+\title{Figure out the total count of registers from a given call from \code{wa_get_registros_json()}}
 \usage{
 wa_get_registros_json_n(id, tm = c("s", "f"))
 }
@@ -12,5 +12,5 @@ wa_get_registros_json_n(id, tm = c("s", "f"))
 \item{tm}{sound ("s") or photo ("f")}
 }
 \description{
-Title
+Figure out the total count of registers from a given call from \code{wa_get_registros_json()}
 }
