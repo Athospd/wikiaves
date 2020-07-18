@@ -4,8 +4,13 @@
 \alias{wa_download}
 \title{Download MP3 files listed in a data.frame wikiaves metadata.}
 \usage{
-wa_download(.wa_metadata, path = getwd(), verbose = TRUE,
-  sys_sleep = 1e-04, force = FALSE)
+wa_download(
+  .wa_metadata,
+  path = getwd(),
+  verbose = TRUE,
+  sys_sleep = 1e-04,
+  force = FALSE
+)
 }
 \arguments{
 \item{.wa_metadata}{a data.frame. Usualy the output from wa_metadata(), but it need just an mp3_link and an mp3_name columns.}

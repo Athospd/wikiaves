@@ -4,10 +4,18 @@
 \alias{wa_metadata}
 \title{Main function. Get metadata from wikiaves from a set of terms.}
 \usage{
-wa_metadata(term, tm = c("s", "f"), verbose = TRUE, download = FALSE,
-  path = getwd(), mp3_file_name = "{label}-{id1}.mp3", parallel = 1,
-  metadata_sys_sleep = 0.1, download_sys_sleep = 1e-04,
-  force = FALSE)
+wa_metadata(
+  term,
+  tm = c("s", "f"),
+  verbose = TRUE,
+  download = FALSE,
+  path = getwd(),
+  mp3_file_name = "{label}-{id}.mp3",
+  parallel = 1,
+  metadata_sys_sleep = 0.1,
+  download_sys_sleep = 1e-04,
+  force = FALSE
+)
 }
 \arguments{
 \item{term}{character vector with the terms to be searched by wikiaves API. Can be a full species specification or just part of it, eg. c("megascops choliba", "strix h").}

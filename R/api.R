@@ -18,12 +18,14 @@ wa_get_registros_json <- function(
   tm = c("s", "f"),
   t = "s"
 ) {
-  jsonlite::fromJSON(glue::glue("https://www.wikiaves.com.br/getRegistrosJSON.php?tm={tm[1]}&t={t}&s={id}&o=mp&p={p}")) %>%
-    purrr::transpose() %>%
-    purrr::map_df(purrr::simplify) %>%
-    tidyr::unnest() %>%
+  fromJSON_safe <- purrr::possibly(jsonlite::fromJSON, list(registros = list(titulo = "", link = "", total = "", itens = list(itens = ""))))
+  fromJSON_safe(glue::glue("https://www.wikiaves.com.br/getRegistrosJSON.php?tm={tm[1]}&t={t}&s={id}&o=mp&p={p}")) %>%
+    purrr::pluck("registros") %>%
+    purrr::map_if(is.null, ~"") %>%
+    tibble::as_tibble() %>%
     dplyr::mutate(itens = purrr::map(itens, as.data.frame, stringsAsFactors = FALSE)) %>%
-    tidyr::unnest()
+    dplyr::select(-link) %>%
+    tidyr::unnest_wider(itens)
 }
 
 
@@ -98,7 +100,7 @@ wa_metadata <- function(
   verbose = TRUE,
   download = FALSE,
   path = getwd(),
-  mp3_file_name = "{label}-{id1}.mp3",
+  mp3_file_name = "{label}-{id}.mp3",
   parallel = 1,
   metadata_sys_sleep = 0.1,
   download_sys_sleep = 0.0001,
@@ -110,30 +112,30 @@ wa_metadata <- function(
     dplyr::mutate(
       taxonomy = purrr::map(term, wa_get_taxons_json)
     ) %>%
-    tidyr::unnest() %>%
+    tidyr::unnest(taxonomy) %>%
     {
-      if(verbose) cat("IDs found from terms:\n")
+      if(verbose) cat("Species IDs found from terms:\n")
       return(.)
     } %>%
-    dplyr::distinct(id, .keep_all = TRUE) %>%
+    dplyr::rename(species_id = id) %>%
+    dplyr::distinct(species_id, .keep_all = TRUE) %>%
     dplyr::mutate(
-      verbose = purrr::map2(term, id, ~{
+      verbose = purrr::map2(term, species_id, ~{
         if(verbose) {
-          cat(glue::glue("id = {.y} (from term '{.x}')\n"))
+          cat(glue::glue("species_id = {.y} (from term '{.x}')\n"))
           cat("\n")
         }
         return(NULL)
       }),
-      registers = purrr::map(id, ~{
+      registers = purrr::map(species_id, ~{
         wa_get_registers_by_id(.x, tm = tm, sys_sleep = metadata_sys_sleep)
       })
     ) %>%
     dplyr::select(-verbose) %>%
-    tidyr::unnest() %>%
-    tidyr::unnest()  %>%
+    tidyr::unnest(registers) %>%
     dplyr::mutate(
       mp3_name = glue::glue(mp3_file_name) %>% stringr::str_replace(" ", "-"),
-      mp3_link = link1 %>% stringr::str_replace("jpg$", "mp3") %>% stringr::str_replace("#_", "_")
+      mp3_link = link %>% stringr::str_replace("jpg$", "mp3") %>% stringr::str_replace("#_", "_")
     )
 
   if(verbose) {
